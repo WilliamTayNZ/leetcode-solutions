@@ -29,3 +29,7 @@ class Solution:
             r += 1
 
         return max_array
+
+# November 19, 2025
+# Key takeaway: we use double-ended queue since we have to pop from both sides
+# When review, solve it with index and not value
