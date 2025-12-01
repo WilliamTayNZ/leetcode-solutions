@@ -32,3 +32,5 @@ class Solution:
             return ""
         else:
             return s[min_window[0]:min_window[1] + 1]
+
+# November 29th, 2025
