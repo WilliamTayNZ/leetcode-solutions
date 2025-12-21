@@ -1,5 +1,9 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # Extra micro-optimisation: find out from the get-go if the value cannot possibly be in the matrix
+        if target < matrix[0][0] or target > matrix[-1][-1]:
+            return False
+            
         # Step 1: Binary search on the 2D array
         top = 0
         bottom = len(matrix) - 1
