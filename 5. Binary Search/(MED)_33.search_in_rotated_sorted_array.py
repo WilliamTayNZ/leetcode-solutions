@@ -3,7 +3,7 @@ class Solution:
         left = 0
         right = len(nums) - 1
 
-        # Key intuition: at each step, 1 half is sorted and 1 is not
+        # Key intuition: at each step, at least 1 half will be sorted.
 
         while left <= right:
             mid = (left + right) // 2
@@ -11,16 +11,16 @@ class Solution:
             if nums[mid] == target:
                 return mid
 
-            # If left is sorted
+            # Else, check if left half is sorted
             elif nums[left] <= nums[mid]:
-                if nums[mid] < target or target < nums[left]:
+                if nums[mid] < target or target < nums[left]: # check if target is too big or too small for this range
                     left = mid + 1
                 else:
                     right = mid - 1
 
-            # If right is sorted
-            elif nums[mid] <= nums[right]:
-                if nums[mid] > target or target > nums[right]:
+            # Else, right is definitely sorted i.e nums[mid] <= nums[right]
+            else:
+                if nums[mid] > target or target > nums[right]: # check if target is too big or too small for this range
                     right = mid - 1
                 else:
                     left = mid + 1
